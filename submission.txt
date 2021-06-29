@@ -1,0 +1,28 @@
+Used behaviour cloning to imitate expert behaviour. So only recorded_images and actions are used in dataset. Images are split into random training and test split. It becomes a supervised learning problem, multi-class classification.
+
+The code attached does following-
+
+Save statistics of complete dataset
+Create train test split
+Train on training set
+Test and evaluate accuracy on test set
+
+Training-
+Training budget was set for ~1hr. 2 V100 GPUs were used.
+Following configurations of CNN were tried-
+
+Architecture-
+1. Deepmind paper (Mnih, Volodymyr, et al. "Playing atari with deep reinforcement learning.") architecture - 1.6M learnt parameters
+2. LeNet-5 architecture with slight modification - 0.1M learnt parameters 
+
+Both gave roughly same test accuracy after hyperparameter tuning. So 2nd was chosen because of less parameters.
+
+Hyperparameters-
+Adam was used.
+Learning Rate - (1e-3, 0.0025, 1e-4)
+Larger learning rate learns better initially but takes long to converge. Smaller learning rate of 1e-4 was best for given training budget.
+
+Batch size - (8, 16, 32, 5000)
+Compared to larger batch size, smaller batch size converge in more iterations(training on one minibatch) but takes less time per iteration. batch size=16 gave best results.
+
+Final test accuracy is 66%!

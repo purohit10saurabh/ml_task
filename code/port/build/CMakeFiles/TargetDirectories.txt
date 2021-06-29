@@ -1,0 +1,3 @@
+/home/ubuntu/atal/sp/task/Task/code/port/build/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/atal/sp/task/Task/code/port/build/CMakeFiles/edit_cache.dir
+/home/ubuntu/atal/sp/task/Task/code/port/build/CMakeFiles/example-app.dir
