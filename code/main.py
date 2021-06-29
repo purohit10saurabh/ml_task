@@ -3,7 +3,7 @@ import torch.nn.functional as F
 from utils import *
 
 device = 'cuda:0,1' if torch.cuda.is_available() else 'cpu'
-print("Must have atleast 2 gpus for training, Device is",device)
+print("Must have atleast 2 gpus, Device is",device)
 
 class LeNet(nn.Module):
 	def __init__(self):

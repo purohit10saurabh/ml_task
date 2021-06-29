@@ -1,2 +1,0 @@
-/home/ubuntu/atal/sp/task/Task/code/port/opencv/
-

@@ -1,14 +1,17 @@
+Check README file in Task folder to run the code.
+
 Used behaviour cloning to imitate expert behaviour. So only recorded_images and actions are used in dataset. Images are split into random training and test split. It becomes a supervised learning problem, multi-class classification.
 
 The code attached does following-
 
 Save statistics of complete dataset
-Create train test split
+Create train:test split (9:1)
 Train on training set
 Test and evaluate accuracy on test set
 
 Training-
-Training budget was set for ~1hr. 2 V100 GPUs were used.
+Training budget was set as ~1hr. 2 V100 GPUs were used.
+
 Following configurations of CNN were tried-
 
 Architecture-
@@ -18,11 +21,19 @@ Architecture-
 Both gave roughly same test accuracy after hyperparameter tuning. So 2nd was chosen because of less parameters.
 
 Hyperparameters-
-Adam was used.
+Adam optimizer was used.
 Learning Rate - (1e-3, 0.0025, 1e-4)
-Larger learning rate learns better initially but takes long to converge. Smaller learning rate of 1e-4 was best for given training budget.
+Larger learning rate learns better initially but takes long to converge. Smaller learning rate of 1e-4 was best for set training budget.
 
 Batch size - (8, 16, 32, 5000)
-Compared to larger batch size, smaller batch size converge in more iterations(training on one minibatch) but takes less time per iteration. batch size=16 gave best results.
+Compared to larger batch size, smaller batch size converge in more iterations(one iteration is training on one minibatch) but takes less time per iteration. batch size=16 gave best results.
 
-Final test accuracy is 66%!
+Training time is ~1hr with 10 epochs.
+
+Final test accuracy is 66%!!
+
+--------------------------------------------------------------------------------------------------------
+
+Bonus Part-
+
+The CNN is ported to C++. Inference and evaluation is done in C++(without opencv). It works!!!(Attached screenshot.) The output of the ported model for any given input is the same as in python. Evaluation is also done in C++, giving the same Test Accuracy of 66%. 
